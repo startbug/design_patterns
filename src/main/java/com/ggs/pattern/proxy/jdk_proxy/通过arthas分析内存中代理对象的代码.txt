@@ -1,0 +1,28 @@
+//这里对代码进行了简化，方便理解
+/**
+ * 在内存中的代理对象，实际上是继承了Proxy对象，并实现了被代理对象所有接口
+ * 代理对象在静态代码块中获取被代理对象的方法对象
+ * 构造方法传入的InvocationHandler就是Proxy.newProxyInstance方法中传入参数
+ * 并且通过构造方法将InvocationHandler传入到Proxy对象中，由 protected InvocationHandler h; 变量接收
+ * 代理对象中的方法就会调用invocationHandler中的invoke方法，从而实现代理功能
+ */
+public final class $Proxy0 extends Proxy implements SellTickets {
+    private static Method m3;
+
+    public $Proxy0(InvocationHandler invocationHandler) {
+        super(invocationHandler);
+    }
+
+    static {
+        m3 = Class.forName("com.ggs.pattern.proxy.jdk_proxy.SellTickets").getMethod("sell", new Class[0]);
+    }
+
+    public final void sell() {
+        this.h.invoke(this, m3, null);
+    }
+}
+
+
+public class Proxy {
+    protected InvocationHandler h;
+}

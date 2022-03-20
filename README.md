@@ -1,2 +1,2 @@
 设计模式学习及案例
-![](./img/wallhaven-0jwkjq.jpg)
+![](./design_patterns/img/wallhaven-0jwkjq.jpg)
